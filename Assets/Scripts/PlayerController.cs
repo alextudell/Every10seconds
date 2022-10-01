@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    private int playerHealth;
     public Vector2 speed = new Vector2(5f, 5f);
     
     private Vector2 playerMovement;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         player_rb = GetComponent<Rigidbody2D>();
+        playerHealth = 2;
         // player_anim = GetComponent<Animator>();
     }
 
@@ -25,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerMovement = new Vector2(
             speed.x * inputX,
-            speed.y * inputY);
+            speed.y * inputY);  
         
         player_anim.SetFloat("Horizontal", playerMovement.x);
         player_anim.SetFloat("Vertical", playerMovement.y);
@@ -36,5 +38,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         player_rb.velocity = playerMovement;
+    }
+
+    public void ChangePlayerHealth(int deltaHealth)
+    {
+        playerHealth += deltaHealth;
     }
 }

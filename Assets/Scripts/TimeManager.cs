@@ -42,7 +42,5 @@ public class TimeManager : MonoBehaviour
 
         float leftSeconds = Mathf.FloorToInt(currentTime % 60);
         uiManager.timerText.SetText(leftSeconds.ToString());
-        Debug.Log(leftSeconds);
-        // uiManager.timerText = leftSeconds;
     }
 }
