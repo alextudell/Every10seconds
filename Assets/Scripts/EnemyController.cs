@@ -37,11 +37,16 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
+        var bullet = collision.gameObject.GetComponent<Bullet>();
         
         if (player)
         {
             Destroy(gameObject);
             player.ChangePlayerHealth(_damage);
+        }
+        if (bullet)
+        {
+            Destroy(gameObject);
         }
 
         Debug.Log(collision.gameObject.name);
