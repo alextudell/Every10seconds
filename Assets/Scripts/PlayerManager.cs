@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject playerSpawnPoint;
     [SerializeField] private GameObject playerPrefab;
 
-    private Vector2 spawnPoint;
+    public Vector2 spawnPoint;
 
     private UIManager uiManager;
 
