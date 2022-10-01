@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 68726421}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 787827144}
   - component: {fileID: 787827143}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,8 +461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 661d49f86ac03054da608d7c0548add5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToSpawn: 0
-  _enemyPref: {fileID: 0}
+  _timer: 2
+  _enemyPref: {fileID: 7263082534804027469, guid: f353bcb99b2409a47bc2043b1264a15f, type: 3}
+  _spawnPoint: {fileID: 787827142}
 --- !u!4 &787827144
 Transform:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787827142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.532625, y: -8.437752, z: -0.31895176}
+  m_LocalPosition: {x: -8.532625, y: 0.01, z: -0.31895176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

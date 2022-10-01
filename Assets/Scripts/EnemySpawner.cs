@@ -8,15 +8,14 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField][Range(0.1f, 10)]
     private float _timer;
-
     private float _timeToSpawn;
         
     [SerializeField]
     private GameObject _enemyPref;
+    [SerializeField]
+    private GameObject _spawnPoint;
 
-    [SerializeField] private GameObject _spawnPoint;
-
-    private int _spawnCount;
+    private int _spawnCount = 10;
 
     private void Update()
     {
