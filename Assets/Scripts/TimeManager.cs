@@ -6,7 +6,8 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     UIManager uiManager;
-    
+    PlayerManager playerManager;
+
     public float timeDefault;
     private float timeLeft;
     public bool timerOn;
@@ -14,7 +15,9 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        playerManager = GetComponent<PlayerManager>();
         uiManager = GetComponent<UIManager>();
+
         timerOn = true;
         resetTimer();
     }
@@ -36,8 +39,8 @@ public class TimeManager : MonoBehaviour
             }
             else
             {
-                timeLeft = 0;
-                timerOn = false;
+                playerManager.ResetPlayer();
+                resetTimer();
             }
             
         }
