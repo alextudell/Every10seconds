@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     private Transform _target;
     [SerializeField]
     private int _enemyHP;
+    [SerializeField]
+    private int _damage;
 
 
     private void Start()
@@ -32,11 +34,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Player")
+        var player = collision.gameObject.GetComponent<PlayerController>();
+        
+        if (player)
         {
             Destroy(gameObject);
+            player.ChangePlayerHealth(_damage);
         }
+
+        Debug.Log(collision.gameObject.name);
     }
 }

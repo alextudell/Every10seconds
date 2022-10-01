@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int playerHealth;
+    [SerializeField] private int playerHealth;
     public Vector2 speed = new Vector2(5f, 5f);
     
     private Vector2 playerMovement;
@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
 
     public void ChangePlayerHealth(int deltaHealth)
     {
-        playerHealth += deltaHealth;
+        playerHealth -= deltaHealth;
+        if (playerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
