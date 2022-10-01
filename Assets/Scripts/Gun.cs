@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] private GameObject gameManagers;
+    PauseManager pauseManager;
+
     [SerializeField]
     private GameObject _bullet;
 
@@ -13,6 +16,12 @@ public class Gun : MonoBehaviour
     private float _timeShot;
     [SerializeField] 
     private float _startTime;
+
+    void Awake()
+    {
+        pauseManager = gameManagers.GetComponent<PauseManager>();
+    }
+
     void Update()
     {
         var targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -29,9 +38,11 @@ public class Gun : MonoBehaviour
         //targetPoint.z = 0;
         //var tp = new Vector3(targetPoint.x, 0, targetPoint.y);
         transform.localRotation = rot;
+        
 
         if (_timeShot <= 0)
         {
+            // СДЕЛАТЬ ПРОВЕРКУ НА gamePaused в pausedManager
             if (Input.GetMouseButton(0))
             {
                 Instantiate(_bullet, _shotDir.position, transform.rotation);

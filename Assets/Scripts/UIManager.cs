@@ -10,12 +10,13 @@ public class UIManager : MonoBehaviour
     public Sprite fullBottle;
     public Sprite emptyBottle;
     
-    [Header("GabeObjects links")]
+    [Header("game GUI links")]
     public GameObject healthBottle1;
     public GameObject healthBottle2;
     public GameObject healthBottle3;
     
-    [Header("Text links")]
+    [Header("GUI links")]
+    public GameObject pauseUI;
     public GameObject ui_Canvas;
     public TMP_Text timerText;
 
@@ -31,6 +32,11 @@ public class UIManager : MonoBehaviour
         healthBottle3.SetActive(false);
         
         Debug.Log("UI Reseted");
+    }
+
+    public void changePauseUI(bool isPause)
+    {
+        pauseUI.SetActive(isPause);
     }
 
     public void ChangeUIHealth(int currentHealth)
