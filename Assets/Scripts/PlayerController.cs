@@ -46,23 +46,8 @@ public class PlayerController : MonoBehaviour
         player_anim.SetFloat("Vertical", playerMovement.y);
         player_anim.SetFloat("Speed", playerMovement.sqrMagnitude);
 
-        /*
-        var targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var lookVector = targetPoint - transform.position;
-        var normalizedLookVector = lookVector.normalized;
-        var rot = transform.localRotation;
-        var rotEuler = rot.eulerAngles;
-        rotEuler.x = 0;
-        rotEuler.y = 0;
-        //var tan = normalizedLookVector.y / normalizedLookVector.x;
-        rotEuler.z = Mathf.Atan2(normalizedLookVector.y, normalizedLookVector.x) * Mathf.Rad2Deg;
-        rot.eulerAngles = rotEuler;
-        //rot.SetLookRotation(lookVector);
-        //targetPoint.z = 0;
-        //var tp = new Vector3(targetPoint.x, 0, targetPoint.y);
-        gunObject.transform.localRotation = rot;
-        */
-
+        
+        
     }
 
     void FixedUpdate()

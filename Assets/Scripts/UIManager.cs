@@ -6,13 +6,16 @@ using TMPro;
  
 public class UIManager : MonoBehaviour
 {
+    [Header("health sprites links")]
     public Sprite fullBottle;
     public Sprite emptyBottle;
     
+    [Header("GabeObjects links")]
     public GameObject healthBottle1;
     public GameObject healthBottle2;
     public GameObject healthBottle3;
-
+    
+    [Header("Text links")]
     public GameObject ui_Canvas;
     public TMP_Text timerText;
 
