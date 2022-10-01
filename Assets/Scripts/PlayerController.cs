@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         playerHealth -= deltaHealth;
         if (playerHealth <= 0)
         {
+            
             Destroy(gameObject);
         }
     }
