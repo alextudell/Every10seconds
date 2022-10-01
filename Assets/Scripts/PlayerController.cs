@@ -5,11 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject managersHandler;
-    [SerializeField] private int playerHealth;
+    private GameObject gunObject;
+    
     public Vector2 speed = new Vector2(5f, 5f);
     
     private Vector2 playerMovement;
+    private Vector2 movementDirection;
+
+    private float inputX;
+    private float inputY;
+
     private UIManager uiManager;
+    private int playerHealth;
+    private int lastHorizontalDir;
 
     Rigidbody2D player_rb;
     public Animator player_anim;
@@ -17,16 +25,18 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         uiManager = managersHandler.GetComponent<UIManager>();
+
         player_rb = GetComponent<Rigidbody2D>();
+        gunObject = transform.GetChild(0).gameObject;
         playerHealth = 2;
-        // player_anim = GetComponent<Animator>();
+        player_anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+        inputX = Input.GetAxis("Horizontal");
+        inputY = Input.GetAxis("Vertical");
 
         playerMovement = new Vector2(
             speed.x * inputX,
@@ -36,6 +46,7 @@ public class PlayerController : MonoBehaviour
         player_anim.SetFloat("Vertical", playerMovement.y);
         player_anim.SetFloat("Speed", playerMovement.sqrMagnitude);
 
+        /*
         var targetPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var lookVector = targetPoint - transform.position;
         var normalizedLookVector = lookVector.normalized;
@@ -49,7 +60,8 @@ public class PlayerController : MonoBehaviour
         //rot.SetLookRotation(lookVector);
         //targetPoint.z = 0;
         //var tp = new Vector3(targetPoint.x, 0, targetPoint.y);
-        transform.localRotation = rot;
+        gunObject.transform.localRotation = rot;
+        */
 
     }
 
