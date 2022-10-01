@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
         healthBottle1.GetComponent<Image>().sprite = fullBottle;
         healthBottle2.GetComponent<Image>().sprite = fullBottle;
         healthBottle3.SetActive(false);
+        
         Debug.Log("UI Reseted");
     }
 

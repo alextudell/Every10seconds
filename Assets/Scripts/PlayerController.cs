@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject managersHandler;
     [SerializeField] private int playerHealth;
     public Vector2 speed = new Vector2(5f, 5f);
     
     private Vector2 playerMovement;
+    private UIManager uiManager;
 
     Rigidbody2D player_rb;
     public Animator player_anim;
 
     void Awake()
     {
+        uiManager = managersHandler.GetComponent<UIManager>();
         player_rb = GetComponent<Rigidbody2D>();
         playerHealth = 2;
         // player_anim = GetComponent<Animator>();
@@ -43,9 +46,10 @@ public class PlayerController : MonoBehaviour
     public void ChangePlayerHealth(int deltaHealth)
     {
         playerHealth -= deltaHealth;
+        uiManager.ChangeUIHealth(playerHealth);
+
         if (playerHealth <= 0)
         {
-            
             Destroy(gameObject);
         }
     }
