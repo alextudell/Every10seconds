@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
+  player_anim: {fileID: 68726421}
 --- !u!50 &68726418
 Rigidbody2D:
   serializedVersion: 4
@@ -461,8 +462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 661d49f86ac03054da608d7c0548add5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToSpawn: 0
+  _timer: 0
   _enemyPref: {fileID: 0}
+  _spawnPoint: {fileID: 0}
 --- !u!4 &787827144
 Transform:
   m_ObjectHideFlags: 0

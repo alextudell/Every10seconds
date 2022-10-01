@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 playerMovement;
 
     Rigidbody2D player_rb;
+    public Animator player_anim;
 
     void Awake()
     {
         player_rb = GetComponent<Rigidbody2D>();
+        // player_anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
         playerMovement = new Vector2(
             speed.x * inputX,
             speed.y * inputY);
+        
+        player_anim.SetFloat("Horizontal", playerMovement.x);
+        player_anim.SetFloat("Vertical", playerMovement.y);
+        player_anim.SetFloat("Speed", playerMovement.sqrMagnitude);
  
     }
 
