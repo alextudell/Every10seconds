@@ -14,11 +14,13 @@ public class UIManager : MonoBehaviour
     public GameObject healthBottle1;
     public GameObject healthBottle2;
     public GameObject healthBottle3;
+    public TMP_Text timerText;
+    public TMP_Text deathAdviceText;
     
     [Header("GUI links")]
     public GameObject pauseUI;
     public GameObject ui_Canvas;
-    public TMP_Text timerText;
+    
 
     void Start()
     {
@@ -30,6 +32,8 @@ public class UIManager : MonoBehaviour
         healthBottle1.GetComponent<Image>().sprite = fullBottle;
         healthBottle2.GetComponent<Image>().sprite = fullBottle;
         healthBottle3.SetActive(false);
+
+        deathAdviceText.enabled = false;
         
         Debug.Log("UI Reseted");
     }
@@ -68,4 +72,16 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void ShowDeathAdvice()
+    {
+        StartCoroutine(ShowDeathAdvice("Try again, NOOB!", 2));
+    }
+
+    IEnumerator ShowDeathAdvice (string advice, float delay) {
+     deathAdviceText.text = advice;
+     deathAdviceText.enabled = true;
+     yield return new WaitForSeconds(delay);
+     deathAdviceText.enabled = false;
+ }  
 }

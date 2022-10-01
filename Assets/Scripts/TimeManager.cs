@@ -41,6 +41,7 @@ public class TimeManager : MonoBehaviour
             {
                 playerManager.ResetPlayer();
                 resetTimer();
+                uiManager.ShowDeathAdvice();
             }
             
         }

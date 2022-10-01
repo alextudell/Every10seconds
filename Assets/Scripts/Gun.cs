@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject gameManagers;
-    PauseManager pauseManager;
-
     [SerializeField]
     private GameObject _bullet;
 
@@ -16,11 +13,6 @@ public class Gun : MonoBehaviour
     private float _timeShot;
     [SerializeField] 
     private float _startTime;
-
-    void Awake()
-    {
-        pauseManager = gameManagers.GetComponent<PauseManager>();
-    }
 
     void Update()
     {
