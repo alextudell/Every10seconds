@@ -32,11 +32,15 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Player")
+        var player = collision.gameObject.GetComponent<PlayerController>();
+        
+        if (player)
         {
             Destroy(gameObject);
         }
+
+        Debug.Log(collision.gameObject.name);
     }
 }
