@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
+  player_anim: {fileID: 0}
 --- !u!50 &68726418
 Rigidbody2D:
   serializedVersion: 4
@@ -464,6 +465,7 @@ MonoBehaviour:
   _timer: 2
   _enemyPref: {fileID: 7263082534804027469, guid: f353bcb99b2409a47bc2043b1264a15f, type: 3}
   _spawnPoint: {fileID: 787827142}
+  _maxEnemyCount: 10
 --- !u!4 &787827144
 Transform:
   m_ObjectHideFlags: 0

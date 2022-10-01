@@ -15,23 +15,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject _spawnPoint;
 
-    private int _spawnCount = 10;
+    [SerializeField]
+    private int _maxEnemyCount;
+    
+    private int _enemyCount;
 
     private void Update()
     {
-        if (_timeToSpawn <= 0)
+        if (_enemyCount < _maxEnemyCount)
         {
-            StartCoroutine(SpawnEnemy());
-            _timeToSpawn = _timer;
+            if (_timeToSpawn <= 0)
+            {
+                SpawnEnemy();
+                _timeToSpawn = _timer;
+            }
         }
-
         _timeToSpawn -= Time.deltaTime;
     }
 
-    private IEnumerator SpawnEnemy()
+    private void SpawnEnemy()
     {
         var enemy = Instantiate(_enemyPref, _spawnPoint.transform.position, Quaternion.identity);
-
-        yield return null;
     }
 }

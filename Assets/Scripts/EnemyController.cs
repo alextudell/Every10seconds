@@ -31,4 +31,12 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
