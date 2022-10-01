@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     private Transform _target;
     [SerializeField]
     private int _enemyHP;
+    [SerializeField]
+    private int _damage;
 
 
     private void Start()
@@ -39,6 +41,7 @@ public class EnemyController : MonoBehaviour
         if (player)
         {
             Destroy(gameObject);
+            player.ChangePlayerHealth(_damage);
         }
 
         Debug.Log(collision.gameObject.name);
