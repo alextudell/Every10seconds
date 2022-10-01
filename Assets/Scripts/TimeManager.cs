@@ -6,8 +6,9 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     UIManager uiManager;
-
-    public float timeLeft;
+    
+    public float timeDefault;
+    private float timeLeft;
     public bool timerOn;
 
     // Start is called before the first frame update
@@ -15,6 +16,12 @@ public class TimeManager : MonoBehaviour
     {
         uiManager = GetComponent<UIManager>();
         timerOn = true;
+        resetTimer();
+    }
+
+    public void resetTimer()
+    {
+        timeLeft = timeDefault;
     }
 
     // Update is called once per frame

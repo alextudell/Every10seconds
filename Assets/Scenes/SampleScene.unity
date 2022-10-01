@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 68726418}
   - component: {fileID: 68726417}
   - component: {fileID: 68726421}
+  - component: {fileID: 68726422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -155,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cad7282877d6e74cbb5529a051652a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managersHandler: {fileID: 832735090}
+  playerHealth: 0
   speed: {x: 5, y: 5}
   player_anim: {fileID: 68726421}
 --- !u!50 &68726418
@@ -241,9 +244,10 @@ Transform:
   m_LocalPosition: {x: 1.0093246, y: 0.27621332, z: 0.0008757813}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &68726421
 Animator:
@@ -265,6 +269,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &68726422
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68726416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &79033361
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +367,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296115928
 GameObject:
@@ -361,7 +381,7 @@ GameObject:
   - component: {fileID: 296115931}
   - component: {fileID: 296115930}
   m_Layer: 5
-  m_Name: health_bottle1 (2)
+  m_Name: health_empty3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,8 +404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -50}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 110, y: -25}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &296115930
 MonoBehaviour:
@@ -478,7 +498,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -502,11 +522,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -1.0093247, y: -0.27621335, z: -10.000875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 68726420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603068236
@@ -607,7 +627,7 @@ RectTransform:
   - {fileID: 1001733671}
   - {fileID: 296115929}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -626,7 +646,7 @@ GameObject:
   - component: {fileID: 787003575}
   - component: {fileID: 787003574}
   m_Layer: 5
-  m_Name: health_bottle1
+  m_Name: health_empty1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,8 +669,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 50, y: -25}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &787003574
 MonoBehaviour:
@@ -706,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &787827143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +742,7 @@ MonoBehaviour:
   _timer: 2
   _enemyPref: {fileID: 7263082534804027469, guid: f353bcb99b2409a47bc2043b1264a15f, type: 3}
   _spawnPoint: {fileID: 787827142}
-  _maxEnemyCount: 0
+  _maxEnemyCount: 1
 --- !u!4 &787827144
 Transform:
   m_ObjectHideFlags: 0
@@ -736,7 +756,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832735090
 GameObject:
@@ -769,7 +789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &832735093
 MonoBehaviour:
@@ -783,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765b8f52a96472b498db61873bda07c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 10
+  timeDefault: 10
   timerOn: 1
 --- !u!114 &832735094
 MonoBehaviour:
@@ -797,6 +817,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069633edffa84254bbe956ecf477a19c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullBottle: {fileID: 21300000, guid: 4f154ec091494a94c86e2d0109b89d89, type: 3}
+  emptyBottle: {fileID: 21300000, guid: ff19fb4bea79324448dfe9204c40e366, type: 3}
+  healthBottle1: {fileID: 787003572}
+  healthBottle2: {fileID: 1001733670}
+  healthBottle3: {fileID: 296115928}
   ui_Canvas: {fileID: 603068236}
   timerText: {fileID: 1806507709}
 --- !u!1 &1001733670
@@ -811,7 +836,7 @@ GameObject:
   - component: {fileID: 1001733673}
   - component: {fileID: 1001733672}
   m_Layer: 5
-  m_Name: health_bottle1 (1)
+  m_Name: health_empty2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,8 +859,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -50}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 80, y: -25}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1001733672
 MonoBehaviour:
@@ -941,7 +966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661624109
 GameObject:
@@ -1054,8 +1079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30.1}
-  m_SizeDelta: {x: 156.59271, y: 30.2694}
+  m_AnchoredPosition: {x: -54.196594, y: -30.100006}
+  m_SizeDelta: {x: 98.8615, y: 30.2694}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1806507709
 MonoBehaviour:
@@ -1077,7 +1102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Timer_text
+  m_text: Timer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ead1ba196a2cd4548b0c950c9defcacc, type: 2}
   m_sharedMaterial: {fileID: 1387443790374823446, guid: ead1ba196a2cd4548b0c950c9defcacc, type: 2}
