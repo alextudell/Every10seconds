@@ -1,25 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField][Range(0.1f, 10)]
+    private float _timer;
+
     private float _timeToSpawn;
+        
     [SerializeField]
     private GameObject _enemyPref;
 
+    [SerializeField] private GameObject _spawnPoint;
+
     private int _spawnCount;
 
-    private IEnumerator SpawnEnemy(int enemyCount)
+    private void Update()
     {
-        _spawnCount++;
-
-        for (int i = 0; i == enemyCount; i++)
+        if (_timeToSpawn <= 0)
         {
-            var enemy = Instantiate(_enemyPref);
-            enemy.transform.SetParent(gameObject.transform,false); 
+            StartCoroutine(SpawnEnemy());
+            _timeToSpawn = _timer;
         }
+
+        _timeToSpawn -= Time.deltaTime;
+    }
+
+    private IEnumerator SpawnEnemy()
+    {
+        var enemy = Instantiate(_enemyPref, _spawnPoint.transform.position, Quaternion.identity);
 
         yield return null;
     }
