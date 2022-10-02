@@ -20,6 +20,13 @@ public class EnemyController : MonoBehaviour
     private TimeManager _timeManager;
     private Vector3 _startPoint;
 
+    [SerializeField] 
+    private AudioSource _deadSound;
+
+    private bool _leftDead;
+    private bool _rightDead;
+    private Bullet bullet;
+
 
     private void Start()
     {
@@ -34,10 +41,14 @@ public class EnemyController : MonoBehaviour
         if (transform.position.x < _target.position.x)
         {
             _animator.SetTrigger("Right");
+            _rightDead = true;
+            _leftDead = false;
         }
         if (transform.position.x > _target.position.x)
         {
             _animator.SetTrigger("Left");
+            _rightDead = false;
+            _leftDead = true;
         }
         KilledEnemy();
     }
@@ -53,7 +64,7 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
-        var bullet = collision.gameObject.GetComponent<Bullet>();
+        bullet = collision.gameObject.GetComponent<Bullet>();
         
         if (player)
         {
@@ -62,12 +73,30 @@ public class EnemyController : MonoBehaviour
         }
         if (bullet)
         {
-            Destroy(gameObject);
-            Destroy(bullet.gameObject);
-            _timeManager.GetTimeForKilling();
+
+            StartCoroutine(EnemyDeadRoutine());
         }
 
         Debug.Log(collision.gameObject.name);
+    }
+
+    public IEnumerator EnemyDeadRoutine()
+    {
+        if (_rightDead)
+        {
+            _animator.SetTrigger("RightBoom");
+            _deadSound.Play();
+            yield return null;
+        }
+        if(_leftDead)
+        {
+            _animator.SetTrigger("LeftBoom");
+            _deadSound.Play();
+            yield return null;
+        }
+        Destroy(gameObject);
+        Destroy(bullet.gameObject);
+        _timeManager.GetTimeForKilling();
     }
 
     public void TakeDamage(int damage)
