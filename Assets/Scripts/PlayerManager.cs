@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private GameObject playerObject;
-
     [SerializeField] private GameObject playerSpawnPoint;
     [SerializeField] private GameObject playerPrefab;
 
@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     {
         spawnPoint = playerSpawnPoint.transform.position;
         uiManager = GetComponent<UIManager>();
+        ResetPlayer();
+        PlayerPrefs.SetInt("LastLevel", SceneManager.GetActiveScene().buildIndex);
 
         // НАДО СДЕЛАТЬ СПАВН ИНСТАНСА ИГРОКА В ТОЧКЕ СПАВНА НА УРОВНЕ!!! (НЕ РАБОТАЕТ НИФИГА!!)
         // Instantiate(playerPrefab, playerSpawnPoint.transform, playerSpawnPoint.transform);

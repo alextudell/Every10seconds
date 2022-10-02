@@ -5,15 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    
-    void Start()
+    private int lastLevelIndex;
+
+    void Awake()
     {
-        
+        lastLevelIndex = PlayerPrefs.GetInt("LastLevel");
     }
 
     public void EnterGame()
     {
-        SceneManager.LoadScene("StoryComix");
+        if (PlayerPrefs.HasKey("LastLevel"))
+        {
+            SceneManager.LoadScene(lastLevelIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene("StoryComix");
+        }
     }
 
     public void GameExit()
