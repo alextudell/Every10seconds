@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 661d49f86ac03054da608d7c0548add5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 2
+  _timer: 3
   _enemyPref: {fileID: 7263082534804027469, guid: f353bcb99b2409a47bc2043b1264a15f, type: 3}
   _spawnPoint: {fileID: 5267633762702295833}
-  _maxEnemyCount: 10
+  _maxEnemyCount: 25
