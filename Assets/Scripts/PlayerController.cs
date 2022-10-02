@@ -15,11 +15,15 @@ public class PlayerController : MonoBehaviour
     private float inputX;
     private float inputY;
 
+    private bool playerMoving;
+
     private UIManager uiManager;
     private int playerHealth;
     private int lastHorizontalDir;
 
-    Rigidbody2D player_rb;
+    [SerializeField] private AudioSource audioFootstep;
+
+    private Rigidbody2D player_rb;
     public Animator player_anim;
 
     void Awake()
@@ -30,6 +34,8 @@ public class PlayerController : MonoBehaviour
         gunObject = transform.GetChild(0).gameObject;
         playerHealth = 2;
         player_anim = GetComponent<Animator>();
+
+        audioFootstep = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +51,18 @@ public class PlayerController : MonoBehaviour
         player_anim.SetFloat("Horizontal", playerMovement.x);
         player_anim.SetFloat("Vertical", playerMovement.y);
         player_anim.SetFloat("Speed", playerMovement.sqrMagnitude);
+
+        if (inputX != 0 || inputY !=0)
+        {
+            playerMoving = true;
+        }
+        else
+        {
+            playerMoving = false;
+        }
+
+        if (playerMoving && !audioFootstep.isPlaying) audioFootstep.Play();
+        if (!playerMoving) audioFootstep.Stop(); 
     }
 
     void FixedUpdate()
