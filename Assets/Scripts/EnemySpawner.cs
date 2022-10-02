@@ -20,6 +20,13 @@ public class EnemySpawner : MonoBehaviour
     
     private int _enemyCount;
 
+    private AudioSource spawnSound;
+
+    void Start()
+    {
+        spawnSound = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (_enemyCount < _maxEnemyCount)
@@ -27,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
             if (_timeToSpawn <= 0)
             {
                 SpawnEnemy();
+                spawnSound.Play();
                 _timeToSpawn = _timer;
             }
         }

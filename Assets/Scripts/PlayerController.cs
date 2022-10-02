@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private int playerHealth;
     private int lastHorizontalDir;
 
-    [SerializeField] private AudioSource audioFootstep;
+    private AudioSource audioFootstep;
 
     private Rigidbody2D player_rb;
     public Animator player_anim;

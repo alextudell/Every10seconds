@@ -81,6 +81,7 @@ public class UIManager : MonoBehaviour
             case 0:
                 break;
             case 1:
+                StartCoroutine(ShowAdvice("Card added!", delay));
                 break;
             case 2:
                 StartCoroutine(ShowAdvice("Checkpoint!", delay));
