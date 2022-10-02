@@ -6,12 +6,11 @@ public class DoorController : MonoBehaviour
 {
     private GameObject doorArrow;
     public bool isCracked;
-    private Animator doorAnimator;
+    [SerializeField] private Animator doorAnimator;
 
 
     void Start()
     {
-        doorAnimator = GetComponent<Animator>();
 
         doorArrow = transform.GetChild (0).gameObject;
         isCracked = false; 
@@ -22,6 +21,7 @@ public class DoorController : MonoBehaviour
     {
         if (isCracked) 
         {
+            doorAnimator.SetBool("doorOpened", true);
             doorArrow.SetActive(true);
         }
     }

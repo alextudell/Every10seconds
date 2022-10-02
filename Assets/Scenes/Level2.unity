@@ -1687,6 +1687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCracked: 0
+  doorAnimator: {fileID: 1963484692}
 --- !u!1 &2002454373
 GameObject:
   m_ObjectHideFlags: 0

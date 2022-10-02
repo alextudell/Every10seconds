@@ -12,8 +12,7 @@ public class CardController : MonoBehaviour
     private bool _cardDestroed;
 
     [SerializeField] DoorController doorController;
-
-    [SerializeField]private AudioSource audioCard;
+    [SerializeField] private AudioSource audioCard;
 
     void Awake()
     {
