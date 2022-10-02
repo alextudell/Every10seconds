@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseUI;
     public GameObject ui_Canvas;
     
+    private string[] deathAdvices = new string[] { "Try again, please!", "Not NOW!", "Maybe, loot around?", "LOOOOL", "Dont do it", "WHAT? How a're u doing this?"};
 
     void Start()
     {
@@ -73,9 +74,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowDeathAdvice()
+    public void ShowAdvice(int type, float delay)
     {
-        StartCoroutine(ShowDeathAdvice("Try again, NOOB!", 2));
+        
+
+        switch (type)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                string randomDeathAdvice= deathAdvices[Random.Range (0, deathAdvices.Length)];
+                StartCoroutine(ShowDeathAdvice(randomDeathAdvice, delay));
+                break;
+            default:
+                Debug.Log("Error UI - Advice type text unknown");
+                break;
+        }
     }
 
     IEnumerator ShowDeathAdvice (string advice, float delay) {
