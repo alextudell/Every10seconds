@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private int _enemyHP;
     [SerializeField]
-    private int _damage;
+    private int _dealtDamage;
 
 
     private void Start()
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
         if (player)
         {
             Destroy(gameObject);
-            player.ChangePlayerHealth(_damage);
+            player.ChangePlayerHealth(_dealtDamage);
         }
         if (bullet)
         {
@@ -50,5 +50,15 @@ public class EnemyController : MonoBehaviour
         }
 
         Debug.Log(collision.gameObject.name);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _enemyHP -= damage;
+
+        if (_enemyHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
