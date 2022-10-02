@@ -14,14 +14,14 @@ public class MenuManager : MonoBehaviour
 
     public void EnterGame()
     {
-        if (PlayerPrefs.HasKey("LastLevel"))
-        {
-            SceneManager.LoadScene(lastLevelIndex);
-        }
-        else
-        {
+        // if (PlayerPrefs.HasKey("LastLevel"))
+        // {
+        //     SceneManager.LoadScene(lastLevelIndex);
+        // }
+        // else
+        // {
             SceneManager.LoadScene("StoryComix");
-        }
+        // }
     }
 
     public void GameExit()
