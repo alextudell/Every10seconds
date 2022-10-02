@@ -76,8 +76,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowAdvice(int type, float delay)
     {
-        
-
         switch (type)
         {
             case 0:
@@ -85,10 +83,11 @@ public class UIManager : MonoBehaviour
             case 1:
                 break;
             case 2:
+                StartCoroutine(ShowAdvice("Checkpoint!", delay));
                 break;
             case 3:
                 string randomDeathAdvice= deathAdvices[Random.Range (0, deathAdvices.Length)];
-                StartCoroutine(ShowDeathAdvice(randomDeathAdvice, delay));
+                StartCoroutine(ShowAdvice(randomDeathAdvice, delay));
                 break;
             default:
                 Debug.Log("Error UI - Advice type text unknown");
@@ -96,7 +95,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator ShowDeathAdvice (string advice, float delay) {
+    IEnumerator ShowAdvice (string advice, float delay) {
      deathAdviceText.text = advice;
      deathAdviceText.enabled = true;
      yield return new WaitForSeconds(delay);
