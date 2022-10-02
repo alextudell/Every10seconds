@@ -9,6 +9,8 @@ public class CardController : MonoBehaviour
     TimeManager timeManager;
     UIManager uiManager;
 
+    DoorController doorController;
+
     private AudioSource audioCard;
 
     void Awake()
@@ -16,6 +18,7 @@ public class CardController : MonoBehaviour
         playerManager = transform.parent.gameObject.GetComponent<PlayerManager>();
         uiManager = transform.parent.gameObject.GetComponent<UIManager>();
 
+        doorController = targetDoor.GetComponent<DoorController>();
         audioCard = GetComponent<AudioSource>();
     }
 
@@ -23,10 +26,11 @@ public class CardController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
+            doorController.isCracked = true;
             // Grab the X and Y values of the checkpoint position
             uiManager.ShowAdvice(1, 2f);
             audioCard.Play();
-            Destroy(gameObject);
+            // gameObject.SetActive(false);
         }
     }
 }
