@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D player_rb;
     public Animator player_anim;
+    [SerializeField] 
+    private PlayerManager _playerManager;
 
     void Awake()
     {
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         player_anim = GetComponent<Animator>();
 
         audioFootstep = GetComponent<AudioSource>();
+
+        _playerManager = FindObjectOfType<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -76,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            Destroy(gameObject);
+            _playerManager.ResetPlayer();
         }
     }
 }

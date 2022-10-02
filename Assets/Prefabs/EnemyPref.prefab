@@ -107,6 +107,7 @@ MonoBehaviour:
   _dealtDamage: 1
   _animator: {fileID: 7782091038893193191}
   _timeManager: {fileID: 0}
+  _deadSound: {fileID: 5970773511836099590}
 --- !u!50 &1951938368084384064
 Rigidbody2D:
   serializedVersion: 4

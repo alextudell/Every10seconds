@@ -68,12 +68,11 @@ public class EnemyController : MonoBehaviour
         
         if (player)
         {
-            Destroy(gameObject);
+            StartCoroutine(EnemyDeadRoutine());
             player.ChangePlayerHealth(_dealtDamage);
         }
         if (bullet)
         {
-
             StartCoroutine(EnemyDeadRoutine());
         }
 
