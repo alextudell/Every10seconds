@@ -13,7 +13,13 @@ public class Gun : MonoBehaviour
     private float _timeShot;
     [SerializeField] 
     private float _startTime;
+
+    private AudioSource fireSound;
     
+    void Awake()
+    {
+        fireSound = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -38,6 +44,7 @@ public class Gun : MonoBehaviour
             // СДЕЛАТЬ ПРОВЕРКУ НА gamePaused в pausedManager
             if (Input.GetMouseButton(0))
             {
+                fireSound.Play();
                 Instantiate(_bullet, _shotDir.position, transform.rotation);
                 _timeShot = _startTime;
             }

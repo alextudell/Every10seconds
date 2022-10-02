@@ -22,6 +22,7 @@ public class ExitController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
+            Debug.Log("Next level activated");
             SceneManager.LoadScene(nextLevelName);
         }
     }

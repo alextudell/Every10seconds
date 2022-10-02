@@ -8,6 +8,7 @@ public class CheckpointController : MonoBehaviour
     TimeManager timeManager;
     UIManager uiManager;
 
+    private AudioSource audioCheckpoint;
     private Vector2 checkpointPosition; 
 
     void Awake()
@@ -15,6 +16,8 @@ public class CheckpointController : MonoBehaviour
         playerManager = transform.parent.gameObject.GetComponent<PlayerManager>();
         timeManager = transform.parent.gameObject.GetComponent<TimeManager>();
         uiManager = transform.parent.gameObject.GetComponent<UIManager>();
+
+        audioCheckpoint = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -26,6 +29,7 @@ public class CheckpointController : MonoBehaviour
             playerManager.spawnPoint = checkpointPosition;
             timeManager.resetTimer();
             uiManager.ShowAdvice(2, 2f);
+            audioCheckpoint.Play();
         }
     }
 }
