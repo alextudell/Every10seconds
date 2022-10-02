@@ -1391,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &787827143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDefault: 10
   timerOn: 1
-  _addTime: 1
+  _addTime: 0
 --- !u!114 &832735094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3439,10 +3439,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4480463344816316533, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6890790236785590065, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
       propertyPath: speed.x
       value: 7.5
@@ -3507,22 +3503,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6890790237347252593, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890790237347252598, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890790237347252598, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890790238359589108, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6890790238359589108, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3531,12 +3511,7 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10.17
       objectReference: {fileID: 0}
-    - target: {fileID: 7712391461263668139, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7712391461263668139, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1769f9cd2f56594bb52b1dc7096ed5e, type: 3}
 --- !u!20 &6890790237724844307 stripped
 Camera:
