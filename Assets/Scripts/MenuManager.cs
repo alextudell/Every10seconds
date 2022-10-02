@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
 
     public void EnterGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("StoryComix");
     }
 
     public void GameExit()
