@@ -23,9 +23,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] 
     private AudioSource _deadSound;
 
+    private GameObject _enemy;
+    private bool moving = true;
+
     private bool _leftDead;
     private bool _rightDead;
+    private bool _sharkBoom;
+    
     private Bullet bullet;
+    
 
 
     private void Start()
@@ -33,24 +39,28 @@ public class EnemyController : MonoBehaviour
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _timeManager = FindObjectOfType<TimeManager>();
         _startPoint = transform.position;
+        _enemy = this.gameObject;
     }
 
     private void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
-        if (transform.position.x < _target.position.x)
+        if (moving)
         {
-            _animator.SetTrigger("Right");
-            _rightDead = true;
-            _leftDead = false;
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+            if (transform.position.x < _target.position.x)
+            {
+                _animator.SetTrigger("Right");
+                _rightDead = true;
+                _leftDead = false;
+            }
+            if (transform.position.x > _target.position.x)
+            {
+                _animator.SetTrigger("Left");
+                _rightDead = false;
+                _leftDead = true;
+            }
+            KilledEnemy();
         }
-        if (transform.position.x > _target.position.x)
-        {
-            _animator.SetTrigger("Left");
-            _rightDead = false;
-            _leftDead = true;
-        }
-        KilledEnemy();
     }
 
     private void KilledEnemy()
@@ -65,34 +75,66 @@ public class EnemyController : MonoBehaviour
     {
         var player = collision.gameObject.GetComponent<PlayerController>();
         bullet = collision.gameObject.GetComponent<Bullet>();
-        
+
+        if (player == null && bullet == null)
+        {
+            Debug.Log(collision.gameObject.name);
+        }
         if (player)
         {
+            _sharkBoom = true;
             StartCoroutine(EnemyDeadRoutine());
             player.ChangePlayerHealth(_dealtDamage);
         }
         if (bullet)
         {
+            _sharkBoom = false;
             StartCoroutine(EnemyDeadRoutine());
+            Destroy(bullet.gameObject);
         }
-
-        Debug.Log(collision.gameObject.name);
     }
 
     public IEnumerator EnemyDeadRoutine()
     {
-        if (_rightDead)
+        if (!_sharkBoom)
         {
-            _animator.SetTrigger("RightBoom");
-            _deadSound.Play();
-            yield return null;
+            if (_rightDead)
+            {
+                moving = false;
+                _enemy.GetComponent<Collider2D>().enabled = false;
+                _animator.SetTrigger("RightDie");
+                _deadSound.Play();
+                yield return new WaitForSeconds(1);
+            }
+            if(_leftDead)
+            {
+                moving = false;
+                _enemy.GetComponent<Collider2D>().enabled = false;
+                _animator.SetTrigger("LeftDie");
+                _deadSound.Play();
+                yield return new WaitForSeconds(1);
+            }
         }
-        if(_leftDead)
+        else
         {
-            _animator.SetTrigger("LeftBoom");
-            _deadSound.Play();
-            yield return null;
+            if (_rightDead)
+            {
+                moving = false;
+                _enemy.GetComponent<Collider2D>().enabled = false;
+                _animator.SetTrigger("RightBoom");
+                _deadSound.Play();
+                yield return new WaitForSeconds(1);
+            }
+            if(_leftDead)
+            {
+                moving = false;
+                _enemy.GetComponent<Collider2D>().enabled = false;
+                _animator.SetTrigger("LeftBoom");
+                _deadSound.Play();
+                yield return new WaitForSeconds(1);
+            }
         }
+        
         Destroy(gameObject);
         Destroy(bullet.gameObject);
         _timeManager.GetTimeForKilling();
