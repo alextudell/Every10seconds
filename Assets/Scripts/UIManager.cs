@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
  
 public class UIManager : MonoBehaviour
@@ -79,6 +80,7 @@ public class UIManager : MonoBehaviour
         switch (type)
         {
             case 0:
+                StartCoroutine(ShowAdvice("Welcome   to:   " + SceneManager.GetActiveScene().name, delay));
                 break;
             case 1:
                 StartCoroutine(ShowAdvice("Card added!", delay));

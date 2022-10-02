@@ -21,6 +21,11 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetInt("LastLevel", SceneManager.GetActiveScene().buildIndex);
     }
 
+    void Start()
+    {
+        uiManager.ShowAdvice(0, 2f);
+    }
+
     public void ResetPlayer()
     {
         playerObject.transform.position = spawnPoint;
