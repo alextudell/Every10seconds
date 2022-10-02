@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
         if (playerHealth <= 0)
         {
+            playerHealth = 2;
+            uiManager.ChangeUIHealth(playerHealth);
             _playerManager.ResetPlayer();
         }
     }

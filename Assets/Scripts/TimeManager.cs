@@ -52,7 +52,7 @@ public class TimeManager : MonoBehaviour
     private void UpdateTimer(float currentTime)
     {
         currentTime +=1;
-
+        
         float leftSeconds = Mathf.FloorToInt(currentTime % 60);
         uiManager.timerText.SetText(leftSeconds.ToString());
     }
