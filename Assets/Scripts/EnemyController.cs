@@ -136,7 +136,6 @@ public class EnemyController : MonoBehaviour
         }
         
         Destroy(gameObject);
-        Destroy(bullet.gameObject);
         _timeManager.GetTimeForKilling();
     }
 
