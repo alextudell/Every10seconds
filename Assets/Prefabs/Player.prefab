@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 6890790236785590064}
   - component: {fileID: 6890790236785590067}
   - component: {fileID: 4225634806840089968}
-  - component: {fileID: 7712391461263668139}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -282,6 +281,7 @@ MonoBehaviour:
   managersHandler: {fileID: 0}
   speed: {x: 5, y: 5}
   playerHealth: 2
+  audioFootstep: {fileID: 0}
   player_anim: {fileID: 6890790236785590064}
 --- !u!95 &6890790236785590064
 Animator:
@@ -333,19 +333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gun: {fileID: 6890790237347252593}
   _knife: {fileID: 2218285776213649605}
---- !u!114 &7712391461263668139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6890790236785590066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d81a1d266199424eb069e759622d774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 6890790238359589115}
 --- !u!1 &6890790237347252593
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,8 +359,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6890790237347252593}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.064, y: 0.209, z: -0.0008757813}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0.088, y: 0.38, z: -0.0008757813}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6890790237874048222}
