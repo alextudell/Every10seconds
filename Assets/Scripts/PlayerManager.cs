@@ -19,9 +19,6 @@ public class PlayerManager : MonoBehaviour
         uiManager = GetComponent<UIManager>();
         ResetPlayer();
         PlayerPrefs.SetInt("LastLevel", SceneManager.GetActiveScene().buildIndex);
-
-        // НАДО СДЕЛАТЬ СПАВН ИНСТАНСА ИГРОКА В ТОЧКЕ СПАВНА НА УРОВНЕ!!! (НЕ РАБОТАЕТ НИФИГА!!)
-        // Instantiate(playerPrefab, playerSpawnPoint.transform, playerSpawnPoint.transform);
     }
 
     public void ResetPlayer()
