@@ -281,8 +281,8 @@ MonoBehaviour:
   managersHandler: {fileID: 0}
   speed: {x: 5, y: 5}
   playerHealth: 2
-  audioFootstep: {fileID: 0}
   player_anim: {fileID: 6890790236785590064}
+  _playerManager: {fileID: 0}
 --- !u!95 &6890790236785590064
 Animator:
   serializedVersion: 4
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 8068331521492041019, guid: 44a8d5bfe58c15147b271fb6069e59a1, type: 3}
   _shotDir: {fileID: 6890790237874048222}
-  _startTime: 1
+  _startTime: 0.5
 --- !u!1 &6890790237874048217
 GameObject:
   m_ObjectHideFlags: 0

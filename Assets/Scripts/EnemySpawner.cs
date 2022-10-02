@@ -44,5 +44,6 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         var enemy = Instantiate(_enemyPref, _spawnPoint.transform.position, Quaternion.identity);
+        _enemyCount++;
     }
 }
