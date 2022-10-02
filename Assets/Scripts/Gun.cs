@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     private float _timeShot;
     [SerializeField] 
     private float _startTime;
+    
 
     void Update()
     {
@@ -30,7 +31,7 @@ public class Gun : MonoBehaviour
         //targetPoint.z = 0;
         //var tp = new Vector3(targetPoint.x, 0, targetPoint.y);
         transform.localRotation = rot;
-        
+
 
         if (_timeShot <= 0)
         {

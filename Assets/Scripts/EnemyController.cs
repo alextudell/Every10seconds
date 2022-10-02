@@ -13,16 +13,32 @@ public class EnemyController : MonoBehaviour
     private int _enemyHP;
     [SerializeField]
     private int _dealtDamage;
+    [SerializeField]
+    private Animator _animator;
+
+    [SerializeField]
+    private TimeManager _timeManager;
+    private Vector3 _startPoint;
 
 
     private void Start()
     {
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _timeManager = FindObjectOfType<TimeManager>();
+        _startPoint = transform.position;
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+        if (transform.position.x < _target.position.x)
+        {
+            _animator.SetTrigger("Right");
+        }
+        if (transform.position.x > _target.position.x)
+        {
+            _animator.SetTrigger("Left");
+        }
         KilledEnemy();
     }
 
@@ -47,6 +63,8 @@ public class EnemyController : MonoBehaviour
         if (bullet)
         {
             Destroy(gameObject);
+            Destroy(bullet.gameObject);
+            _timeManager.GetTimeForKilling();
         }
 
         Debug.Log(collision.gameObject.name);

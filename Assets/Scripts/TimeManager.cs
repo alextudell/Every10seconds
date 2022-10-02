@@ -11,6 +11,8 @@ public class TimeManager : MonoBehaviour
     public float timeDefault;
     private float timeLeft;
     public bool timerOn;
+    [SerializeField]
+    private float _addTime;
 
     // Start is called before the first frame update
     void Awake()
@@ -53,5 +55,10 @@ public class TimeManager : MonoBehaviour
 
         float leftSeconds = Mathf.FloorToInt(currentTime % 60);
         uiManager.timerText.SetText(leftSeconds.ToString());
+    }
+
+    public void GetTimeForKilling()
+    {
+        timeLeft += _addTime;
     }
 }

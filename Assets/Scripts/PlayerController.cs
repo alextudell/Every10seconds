@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool playerMoving;
 
     private UIManager uiManager;
-    private int playerHealth;
+    [SerializeField]private int playerHealth;
     private int lastHorizontalDir;
 
     [SerializeField] private AudioSource audioFootstep;
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
 
         player_rb = GetComponent<Rigidbody2D>();
         gunObject = transform.GetChild(0).gameObject;
-        playerHealth = 2;
         player_anim = GetComponent<Animator>();
 
         audioFootstep = GetComponent<AudioSource>();
@@ -43,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-
+        
         playerMovement = new Vector2(
             speed.x * inputX,
             speed.y * inputY);  
@@ -80,6 +79,4 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }
